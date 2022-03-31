@@ -1,5 +1,7 @@
 import { UserType } from "../codecs";
-import { enoughSpace, getUserlistSize, popIndex  } from "../utils";
+import { enoughSpace, getUserlistSize
+  // popIndex  
+} from "../utils";
 
 const mockUserTypeList: UserType[] = [
   {name: 'pippo', size: 1},
@@ -33,13 +35,13 @@ describe('testing enoughSpace', () => {
   })
 })
 
-describe('testing popIndex', () => {
-  it('should rendurn new array withoud givenIndex', () => {
-    const pick = mockUserTypeList[1]
-    const poppedArray = popIndex(mockUserTypeList,1)
-    const found = poppedArray.find(item => pick.name === item.name)
-    expect(found).toBeUndefined() 
-    expect(poppedArray[1].name).not.toEqual(pick.name)
-    expect(poppedArray.length).toEqual(mockUserTypeList.length -1)
-  })
-})
+// describe('testing popIndex', () => {
+//   it('should rendurn new array withoud givenIndex', () => {
+//     const pick = mockUserTypeList[1]
+//     const poppedArray = popIndex(mockUserTypeList,1)
+//     const found = poppedArray.find(item => pick.name === item.name)
+//     expect(found).toBeUndefined() 
+//     expect(poppedArray[1].name).not.toEqual(pick.name)
+//     expect(poppedArray.length).toEqual(mockUserTypeList.length -1)
+//   })
+// })

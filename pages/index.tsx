@@ -30,7 +30,7 @@ export default function Home() {
       <Page>
         <Page.Content>
         <Upload updateList={updateUserList} />
-        { userList.length >0 && <FormSelector totalSize={getUserlistSize(userList)} onCallback={doShuffle}/> }
+        { userList.length >0 && <FormSelector totalLength={userList.length} totalSize={getUserlistSize(userList)} onCallback={doShuffle}/> }
         </Page.Content>
       </Page>
 

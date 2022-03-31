@@ -3,6 +3,7 @@ import { shuffle } from "utils/shuffle";
 
 interface FormSelectorProps {
   totalSize: number,
+  totalLength: number,
   onCallback:(groups:number) => void
 }
 const initGroup = 6
@@ -30,6 +31,7 @@ export const FormSelector = (p: FormSelectorProps) => {
   }
 
   return <div>
+    <p>total length: { p.totalLength }</p>
     <p>total size: { p.totalSize }</p>
     <div>
       gruppi:

@@ -17,12 +17,12 @@ export const enoughSpace = (limit:number) => (groups: UserType[], user:UserType)
   return (getUserlistSize(groups) + user.size) <= limit
 }
 
-export const popIndex = (userList:UserType[],index:number) => {
-  return [
-    ...userList.slice(0,index),
-    ...userList.slice(index+1,userList.length)
-  ]
-}
+// export const popIndex = (userList:UserType[],index:number) => {
+//   return [
+//     ...userList.slice(0,index),
+//     ...userList.slice(index+1,userList.length)
+//   ]
+// }
 
 export const shuffleGroups = (groups: UserType[][]) => {
   const copy = []
@@ -33,4 +33,20 @@ export const shuffleGroups = (groups: UserType[][]) => {
     copy.push(p)
   }
   return copy
+}
+
+export const countMatch = (as:number[],q:number) => {
+  return as.reduce((a,b) =>  b === q ? a+1 : a, 0)
+}
+
+export const getRecurringCount = (as:UserType[][]) => {
+  const mappedLength = as.map(item => item.length)
+  return Array.from(new Set(as.map(item => item.length)))
+    .reduce((a,b) => {
+      return {
+        ...a,
+        [b]: countMatch(mappedLength,b)
+      }
+    },{})
+
 }
