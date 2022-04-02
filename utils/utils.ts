@@ -35,17 +35,18 @@ export const shuffleGroups = (groups: UserType[][]) => {
   return copy
 }
 
-export const countMatch = (as:number[],q:number) => {
-  return as.reduce((a,b) =>  b === q ? a+1 : a, 0)
+const countMatch = (as:number[]) => (query:number) => {
+  return as.reduce((a,b) =>  b === query ? a+1 : a, 0)
 }
 
 export const getRecurringCount = (as:UserType[][]) => {
   const mappedLength = as.map(item => item.length)
-  return Array.from(new Set(as.map(item => item.length)))
+  const counter = countMatch(mappedLength)
+  return Array.from(new Set(mappedLength))
     .reduce((a,b) => {
       return {
         ...a,
-        [b]: countMatch(mappedLength,b)
+        [b]: counter(b)
       }
     },{})
 
