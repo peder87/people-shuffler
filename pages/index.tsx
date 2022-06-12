@@ -5,7 +5,6 @@ import Head from 'next/head'
 import { Upload } from '@/components/upload/upload'
 import { UserType } from 'utils/codecs'
 import { FormSelector } from '@/components/formSelector/formSelector'
-import { Page } from '@geist-ui/core'
 import { getUserlistSize } from 'utils/utils'
 import { shuffle } from 'utils/shuffle'
 
@@ -27,12 +26,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Page>
-        <Page.Content>
+      <div>
+        <div>
         <Upload updateList={updateUserList} />
         { userList.length >0 && <FormSelector totalLength={userList.length} totalSize={getUserlistSize(userList)} onCallback={doShuffle}/> }
-        </Page.Content>
-      </Page>
+        </div>
+      </div>
 
     </div>
   )

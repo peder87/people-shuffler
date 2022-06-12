@@ -1,7 +1,6 @@
 import { Dzone } from './dropzone'
 import { csvParser }  from '../../utils/csvParser'
 import { UserType } from 'utils/codecs'
-import { Display } from '@geist-ui/core'
 
 interface UplaodProps {
   updateList:(uList:UserType[]) => void
@@ -20,8 +19,8 @@ export const Upload = (p:UplaodProps) => {
   }
 
   return <div data-testid="upload">
-    <Display shadow caption="hello world">
+    <div>
       <Dzone onFileDrop={doStuff} />
-    </Display>
+    </div>
   </div>
 }
