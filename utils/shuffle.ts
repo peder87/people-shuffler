@@ -1,5 +1,5 @@
 import { UserType } from "./codecs";
-import { enoughSpace, getRecurringCount, getUserlistSize, makeADraft, shuffleGroups } from "./utils";
+import { enoughSpace, getRecurringCount, getUserlistSize, makeADraft, shuffleGroups, shuffleGroupsTwo } from "./utils";
 
 export const shuffle = (items:UserType[],groupNumber:number) => {
   let groups: UserType[][] = Array.from({length:groupNumber },() => [])
@@ -25,7 +25,7 @@ export const shuffle = (items:UserType[],groupNumber:number) => {
       return acc
     }, initReduce)
     if(r.done) {
-      groups = shuffleGroups(r.groups)
+      groups = shuffleGroupsTwo(r.groups)
       currentItems.splice(draftItem,1)
     }
   }

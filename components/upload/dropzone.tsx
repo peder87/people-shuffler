@@ -15,10 +15,10 @@ export const Dzone = (p:DzoneProps) => {
   })
 
   return (
-    <div className="p-6">
+    <div css={theme => ({color: 'blue', paddingTop: theme.spacings["2xl"]})}>
       <div {...getRootProps()}>
         <input {...getInputProps()} />
-        {!isDragActive && <p>carica un file .csv</p>}
+        {!isDragActive && <p css={{color: 'red'}}>carica un file .csv</p>}
         {isDragAccept && <p>release to upload file</p>}
         {isDragReject && <p>wrong format</p>}
       </div>

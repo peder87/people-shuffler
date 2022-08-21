@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Head from 'next/head'
 
 // import styles from '@/pages/index.module.css'
@@ -10,17 +10,17 @@ import { shuffle } from 'utils/shuffle'
 
 export default function Home() {
   const [userList, setUserList] = useState<UserType[]>([])
-  
-  const doShuffle = (groups:number) => {
-    shuffle(userList,groups)
+
+  const doShuffle = (groups: number) => {
+    shuffle(userList, groups)
   }
-  
+
   const updateUserList = (userList: UserType[]) => {
     setUserList(userList)
   }
 
   return (
-    <div>
+    <div >
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -28,8 +28,8 @@ export default function Home() {
 
       <div>
         <div>
-        <Upload updateList={updateUserList} />
-        { userList.length >0 && <FormSelector totalLength={userList.length} totalSize={getUserlistSize(userList)} onCallback={doShuffle}/> }
+          <Upload updateList={updateUserList} />
+          {userList.length > 0 && <FormSelector totalLength={userList.length} totalSize={getUserlistSize(userList)} onCallback={doShuffle} />}
         </div>
       </div>
 

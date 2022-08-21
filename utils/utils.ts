@@ -3,6 +3,7 @@ import { pipe } from 'fp-ts/lib/function'
 import * as S from 'fp-ts/Semigroup'
 import * as N from 'fp-ts/number'
 import * as A from 'fp-ts/Array'
+import { imageOptimizer } from "next/dist/server/image-optimizer"
 
 export const getUserlistSize = (userList: UserType[]):number => {
   const sum = S.concatAll(N.SemigroupSum)(0)
@@ -33,6 +34,13 @@ export const shuffleGroups = (groups: UserType[][]) => {
     copy.push(p)
   }
   return copy
+}
+
+export const shuffleGroupsTwo = (g:UserType[][]) :UserType[][] => {
+  return g
+    .map(group => ({ group, idx: Math.random()}))
+    .sort((a,b) => a.idx - b.idx)
+    .map(item => item.group)
 }
 
 const countMatch = (as:number[]) => (query:number) => {
